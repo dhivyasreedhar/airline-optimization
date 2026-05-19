@@ -168,7 +168,7 @@ Three tiers, three code paths:
 
 ---
 
-## What Will You Solve For?
+## What Will The Solution Solve For?
 
 Not the 18 minutes. The cascade. Three things the current system cannot do:
 
@@ -215,13 +215,8 @@ When a disruption fires:
 
 ## How We Are Better
 
-**The simulator is the product, not just the tool.** Most disruption management systems are reactive — they help after the ground stop is issued. dCortex runs scenarios before the disruption fires. An OCC that has already seen the P75 ORD scenario three times this quarter — options enumerated, resources mapped, costs visible — responds differently when it happens live. The simulator builds institutional muscle memory. That is a capability advantage no reactive system can replicate.
+ Most disruption management systems are reactive — they help after the ground stop is issued. This solution runs scenarios before the disruption fires. An OCC that has already seen the P75 ORD scenario three times this quarter — options enumerated, resources mapped, costs visible — responds differently when it happens live. The simulator builds institutional muscle memory. That is a capability advantage no reactive system can replicate.
 
-**Speed creates options that don't exist otherwise.** Earlier awareness is not incrementally better — it accesses solution spaces that later awareness cannot. A reserve called at minute 2 is flight-ready 90 minutes later. The same call at minute 20 cannot reach the same windows. The simulator pre-loads that awareness before the event starts.
-
-**Specialist agents beat a monolithic reasoner.** A single system that checks everything sequentially is opaque and hard to audit. Four agents — crew, aircraft, passenger, coordinating — have clear domains, clear interfaces, and clear failure modes. When the crew agent flags an FDP violation, the dispatcher knows exactly which rule and which crew member. When the coordinating agent commits a reserve, that commitment is visible to every subsequent option evaluation. No hidden state.
-
-**Enumeration beats intuition at scale.** For 2–3 disruptions, experienced dispatchers usually find the right answer. For 10–15 simultaneous disruptions with a stressed reserve pool, structured allocation with full pool visibility is structurally better. The gap is largest when disruptions are most expensive.
 
 **The corpus is the moat.** An algorithm can be copied. Eighteen months of structured reasoning traces from a live carrier — with actual outcomes recorded — cannot. More traces → better calibration → better rankings → more dispatcher trust → more adoption → more traces. That gap compounds. It cannot be fast-followed.
 
