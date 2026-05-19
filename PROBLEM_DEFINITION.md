@@ -241,17 +241,10 @@ A recommendation is only as good as its inputs. Four failure modes matter:
 
 ---
 
-## How the Dispatcher Actually Uses It
-
-During a live disruption, a dispatcher is simultaneously on the phone with crew scheduling, coordinating with gate agents, and communicating with flight crews. dCortex cannot compete for her attention — it has to fit around her workflow.
-
-Two principles:
-
-**Push, not pull.** The briefing surfaces automatically when a disruption fires. The dispatcher does not query the system — the system finds her.
-
-**Peripheral, not primary.** The recommendation must be readable in 30 seconds. The accept/override must be a single action. The system maintains a live status of what's committed and what's still open without requiring active management.
-
-If using the system requires pulling focus away from the disruption itself, it won't be used — regardless of how good the recommendations are. Integration design is not a UI problem. It is a trust problem.
+During a disruption, a dispatcher is on the phone with crew scheduling, gate agents, and flight crews. The system works around that — it doesn't interrupt.
+Automatic - The briefing appears when a disruption fires. The dispatcher doesn't need to query anything.
+Fast - The recommendation takes 30 seconds to read. Accept or override is one action. The system tracks what's committed without requiring management.
+If the system pulls focus from the disruption, it won't get used.
 
 ---
 
