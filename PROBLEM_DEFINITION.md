@@ -48,7 +48,7 @@ The $74–100 figure is a fleet average. The joint allocation problem cannot be 
 
 ## What Was Mapped — and What Is Deliberately Out of Scope
 
-The problem is larger than the first version. Every exclusion below was considered first. The lines are drawn deliberately, not by accident.
+
 
 ### Resources
 
