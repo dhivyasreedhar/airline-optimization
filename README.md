@@ -20,41 +20,45 @@ Two files. No external dependencies beyond Streamlit and Requests.
 
 ```
 app.py            Streamlit dispatcher console (UI + Claude briefing layer)
-simulation.py     Pure computation engine (no UI, no global state)
+simulation.py     Computation engine — four agents, two entry points
 ```
 
-### Pipeline (five steps, runs in milliseconds)
+### Two modes
+
+**`simulate(airport, hour, minute, cause)`** — pre-disruption. Runs P50/P75/P90 scenarios simultaneously before the FAA issues a ground stop. The OCC sees the full cost envelope in milliseconds, can pre-position reserves for the most likely outcome, and can practice disruptions on forecast data before they fire. This is the simulator: run scenarios before committing.
+
+**`run(airport, hour, minute, duration, cause)`** — live decision. Single confirmed scenario, full plan generated, trace locked at dispatcher decision time. Called by `simulate()` for each severity tier; called directly in live mode once the EDCT duration is known.
+
+### Four-agent architecture
 
 ```
-Disruption parameters (airport, time, duration, cause)
+simulate() or run()
         │
         ▼
-[1] Impact — bidirectional BFS from the disrupted node
-        │   Departure-blocked: flights that can't depart during the window
-        │   Arrival-blocked: inbound aircraft held at altitude
-        │   Cascade: downstream flights using delayed aircraft
+[BFS Impact] — bidirectional from the disrupted node
+        │   Departure-blocked / Arrival-blocked / Cascade
         ▼
-[2] Options — every feasible resolution per flight
-        │   DELAY: push departure by expected delay
-        │   CREW_SWAP: activate reserve crew (adds 90-min callout window)
-        │   AIRCRAFT_SWAP: reassign to spare aircraft at origin
-        │   CANCEL: reaccommodate all passengers
+[CoordinatingAgent] — manages shared resource pool, orchestrates:
+        │
+        ├── [CrewAgent]       Part 117 FDP limits (Table B, exact)
+        │                     Reserve availability by type / role / station
+        │
+        ├── [AircraftAgent]   Type ratings, spare aircraft availability
+        │                     Fleet cost by tier (widebody / narrowbody / regional)
+        │
+        └── [PassengerAgent]  Connection risk, delay-dependent misconnection cost
+                              Different delays break different connections
+        │
         ▼
-[3] Constraint check — validated against hard regulatory limits
-        │   FAA Part 117 Table B FDP by start-hour and segment count
-        │   Aircraft type rating (B737 crew cannot fly B777)
-        │   Reserve callout minimum (90 min to flight-ready)
-        │   Reserve location match (must be at flight's origin)
-        ▼
-[4] Allocation — priority-ordered across all affected flights simultaneously
-        │   Ordered by passenger count (highest first)
+Priority-ordered allocation — highest-pax flights first, shared pool tracked
         │   Resources committed to Flight A are unavailable for B, C, ...
-        │   Full pool visibility before each commitment
+        │   Full pool visibility before each option is scored
         ▼
-[5] Trace — immutable reasoning record locked at decision time
-            Options generated, constraints checked, predictions made
-            Dispatcher accepts or overrides; outcome recorded post-resolution
+[Trace] — immutable: every option, every constraint check, every prediction
+          Dispatcher accepts or overrides; outcome recorded post-resolution
 ```
+
+The CoordinatingAgent is what separates dCortex from sequential dispatcher allocation. Dispatchers allocate flight-by-flight. They can't see whether committing the best reserve to Flight A depletes the pool for Flights C through H in ways a different order would avoid. The coordinating agent processes all affected flights with full pool visibility before any commitment is made.
 
 ---
 

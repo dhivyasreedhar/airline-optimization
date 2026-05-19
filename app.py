@@ -11,7 +11,7 @@ import streamlit as st
 from datetime import time as Time, datetime
 from typing import Optional
 
-from simulation import run, DisruptionResult
+from simulation import run, simulate, SimulationResult, DisruptionResult, SEVERITY_PROFILES
 
 # ─── App config ───────────────────────────────────────────────────────────────
 
@@ -84,6 +84,7 @@ def badge(label: str, color: str) -> str:
 for _k, _v in [
     ("stage",      "idle"),
     ("result",     None),
+    ("sim",        None),
     ("briefing",   None),
     ("compute_ms", 0),
 ]:
@@ -233,6 +234,7 @@ with st.sidebar:
         if st.button("Reset", use_container_width=True):
             st.session_state.stage = "idle"
             st.session_state.result = None
+            st.session_state.sim = None
             st.session_state.briefing = None
             st.session_state.compute_ms = 0
             st.rerun()
@@ -254,10 +256,13 @@ with st.sidebar:
 
 if run_btn:
     t0 = wall_time.perf_counter()
-    with st.spinner(f"Running impact assessment for {airport}..."):
-        result = run(airport, start_t.hour, start_t.minute, duration_min, cause)
+    with st.spinner(f"Running simulation for {airport} — P50 / P75 / P90..."):
+        sim_result = simulate(airport, start_t.hour, start_t.minute, cause)
     elapsed_ms = int((wall_time.perf_counter() - t0) * 1000)
-    st.session_state.result = result
+    st.session_state.sim = sim_result
+    st.session_state.result = sim_result.by_label(
+        sev_label.split(" — ")[0]  # "P75 — 30 min" -> "P75"
+    )
     st.session_state.compute_ms = elapsed_ms
     st.session_state.stage = "impact"
     st.session_state.briefing = None
@@ -266,7 +271,9 @@ if run_btn:
 
 # ─── Guard: stage sanity ──────────────────────────────────────────────────────
 
-if st.session_state.stage != "idle" and st.session_state.result is None:
+if st.session_state.stage != "idle" and (
+    st.session_state.result is None or st.session_state.sim is None
+):
     st.session_state.stage = "idle"
     st.rerun()
 
@@ -281,15 +288,23 @@ Select an airport, cause, and severity in the sidebar, then click **RUN SIMULATI
 
 ---
 
-The engine runs five steps in milliseconds:
+**Two modes. One engine.**
+
+**Simulate first** — before the FAA issues a ground stop, run all three severity scenarios (P50 / P75 / P90) simultaneously. See the full cost envelope in milliseconds. Pre-position reserves for the most likely outcome before the disruption fires.
+
+**Decide live** — once the EDCT is issued and duration is known, the selected scenario becomes the plan. Agents lock the trace at dispatcher decision time. Outcome recorded post-resolution calibrates the model for the next event.
+
+---
+
+**Five steps per scenario, run by four coordinating agents:**
 
 1. **Impact** — BFS traversal of the flight graph, bidirectional from the disrupted node
-2. **Enumeration** — every feasible option generated per flight (delay, crew swap, aircraft swap, cancel)
-3. **Constraint check** — all options validated against FAA Part 117 FDP limits and resource availability
-4. **Allocation** — joint resource assignment across all affected flights (highest-pax priority)
-5. **Trace** — full reasoning record locked: every option generated, every constraint checked, every prediction made
+2. **Enumeration** — CrewAgent, AircraftAgent, and PassengerAgent generate every feasible option per flight
+3. **Constraint check** — Part 117 FDP limits (exact Table B), type ratings, reserve callout windows, station availability
+4. **Allocation** — CoordinatingAgent assigns resources across all affected flights simultaneously, highest-pax first, full pool visibility before each commitment
+5. **Trace** — every option considered, every constraint checked, every prediction made — immutable at decision time
 
-A dispatcher today needs 15–20 minutes to build this picture manually.
+A dispatcher today needs 15–20 minutes to build this picture manually, flight by flight.
 dCortex does it before the first phone call.
 """)
     st.stop()
@@ -332,6 +347,28 @@ if st.session_state.stage == "impact":
             "Try a different start time or severity."
         )
         st.stop()
+
+    # ── Scenario envelope ─────────────────────────────────────────────────────
+    sim: SimulationResult = st.session_state.sim
+    st.markdown("### SCENARIO ENVELOPE")
+    st.caption(
+        "All three severity scenarios computed simultaneously. "
+        "Position resources now for the P75. Act when confirmed duration is known."
+    )
+    env_cols = st.columns(3)
+    for col, scenario in zip(env_cols, sim.scenarios):
+        sr = scenario.result
+        is_selected = scenario.duration_min == r.duration_min
+        label = f"**{scenario.label}** — {scenario.duration_min} min"
+        if is_selected:
+            label += " ← selected"
+        col.metric(
+            label,
+            f"${sr.plan_cost:,.0f}",
+            delta=f"{len(sr.resolutions)} flights · {sr.total_pax:,} pax",
+            delta_color="off",
+        )
+    st.markdown("---")
 
     st.markdown("### IMPACT ASSESSMENT")
 

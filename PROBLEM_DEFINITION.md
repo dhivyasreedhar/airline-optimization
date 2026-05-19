@@ -182,11 +182,26 @@ Not the 18 minutes. The cascade. Three things the current system cannot do:
 
 ## What We Build
 
-A reasoning layer on top of the airline's existing systems. Not a replacement — a synthesis. When a disruption fires:
+A reasoning layer on top of the airline's existing systems. Not a replacement — a synthesis.
+
+**Two modes. One engine.**
+
+**Simulate first.** Before the FAA issues a ground stop, the OCC runs all three severity scenarios (P50/P75/P90) simultaneously on forecast data. The full cost envelope — best case to worst case — comes back in milliseconds. The OCC can pre-position reserves for the most likely outcome, practice disruptions before they fire, and test alternative resource strategies ("what if we move a B777 reserve to ORD before the storm?") without any cost. This is institutional muscle memory. Every practice run against a scenario that didn't happen is still a calibration.
+
+**Decide live.** Once the EDCT is issued and duration is known, the selected scenario becomes the active plan.
+
+**Four agents, coordinated.** The system is not a monolithic reasoner. Each domain has a specialist:
+
+- **CrewAgent** — owns FAA Part 117 FDP limits (Table B, implemented exactly — an approximation that clears an illegal crew member creates direct regulatory liability), reserve availability by type rating, role, and station
+- **AircraftAgent** — owns type rating constraints, spare aircraft availability, and the fleet cost model (three tiers: widebody international at $180/min, narrowbody at $74–95/min, regional at $40/min — a flat function is an order-of-magnitude error in allocation priority)
+- **PassengerAgent** — owns connection risk and delay-dependent misconnection cost; different delays break different connections, so cost is computed per option, not per flight
+- **CoordinatingAgent** — orchestrates the three specialists; manages the shared resource pool across all affected flights simultaneously, ordered by passenger count, with full pool visibility before each commitment is made
+
+When a disruption fires:
 
 1. **Impact in seconds** — BFS traversal of the flight graph, bidirectional, complete picture before the first phone call
-2. **Every option enumerated** — constraint-checked against Part 117, aircraft type, reserve availability; no illegal option presented, no feasible option omitted
-3. **Resources allocated with full pool visibility** — all affected flights processed simultaneously, ordered by flight value, each commitment tracked against the shared pool before the next option is evaluated
+2. **Every option enumerated** — agents check Part 117, type ratings, reserve availability; no illegal option presented, no feasible option omitted
+3. **Resources allocated with full pool visibility** — CoordinatingAgent processes all affected flights simultaneously; resources committed to Flight A are unavailable for B, C, ... before those options are scored
 4. **Reasoning trace locked** — every option considered, every constraint checked, every prediction made — immutable at time of decision
 5. **Human says yes or no** — dispatcher accepts, overrides, or modifies; the decision is hers; the airline holds regulatory responsibility
 6. **Outcome recorded** — actual cost vs. predicted; the delta calibrates the model for next time
@@ -200,7 +215,11 @@ A reasoning layer on top of the airline's existing systems. Not a replacement �
 
 ## How We Are Better
 
-**Speed creates options that don't exist otherwise.** Earlier awareness is not incrementally better — it accesses solution spaces that later awareness cannot.
+**The simulator is the product, not just the tool.** Most disruption management systems are reactive — they help after the ground stop is issued. dCortex runs scenarios before the disruption fires. An OCC that has already seen the P75 ORD scenario three times this quarter — options enumerated, resources mapped, costs visible — responds differently when it happens live. The simulator builds institutional muscle memory. That is a capability advantage no reactive system can replicate.
+
+**Speed creates options that don't exist otherwise.** Earlier awareness is not incrementally better — it accesses solution spaces that later awareness cannot. A reserve called at minute 2 is flight-ready 90 minutes later. The same call at minute 20 cannot reach the same windows. The simulator pre-loads that awareness before the event starts.
+
+**Specialist agents beat a monolithic reasoner.** A single system that checks everything sequentially is opaque and hard to audit. Four agents — crew, aircraft, passenger, coordinating — have clear domains, clear interfaces, and clear failure modes. When the crew agent flags an FDP violation, the dispatcher knows exactly which rule and which crew member. When the coordinating agent commits a reserve, that commitment is visible to every subsequent option evaluation. No hidden state.
 
 **Enumeration beats intuition at scale.** For 2–3 disruptions, experienced dispatchers usually find the right answer. For 10–15 simultaneous disruptions with a stressed reserve pool, structured allocation with full pool visibility is structurally better. The gap is largest when disruptions are most expensive.
 
