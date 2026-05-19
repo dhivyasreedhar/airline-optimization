@@ -34,21 +34,21 @@ An 18-minute ground stop is a 60–90 minute disruption window. Any system that 
 
 ## What Does It Cost?
 
-- **$74–100 per minute of delay per aircraft** in direct operating cost — fuel, crew time, gate fees, ownership (Eurocontrol Standard Inputs)
-- A 60-minute effective disruption across 10 aircraft: **$44,000–$60,000** before passenger reaccommodation
-- Missed connection reaccommodation: **$800–$1,200 per passenger** (hotel, meals, rebooking) — this cost is delay-dependent: a 20-minute delay breaks different connections than a 90-minute delay, so the passenger impact must be computed per option, not per flight
+- **$100+ per minute of delay per aircraft** in direct operating cost — fuel, crew time, gate fees, ownership (Airlines for America, 2024: $100.76/min U.S. fleet average; Eurocontrol Standard Inputs confirm comparable European figures). Narrowbody mainline runs $74–100/min; widebody international runs $150–200+/min — see cost tiers below.
+- A 60-minute effective disruption across 10 aircraft: **$60,000–$120,000** before passenger reaccommodation (range reflects fleet mix)
+- Missed connection reaccommodation: **$800–$1,200 per passenger** in fully-loaded airline cost — hotel, meals, partner-carrier rebooking, and lost seat revenue — this cost is delay-dependent: a 20-minute delay breaks different connections than a 90-minute delay, so the passenger impact must be computed per option, not per flight
 - Reserve activation: **$600–$1,000 per crew member** activated
-- US airlines: **$8–10 billion in direct delay costs annually** (Airlines for America)
+- US airlines: **$30–34 billion in total annual delay costs** (FAA/Nextor; Airlines for America) — direct airline operating costs plus passenger time loss, lost demand, and indirect effects; the direct-to-airline operating slice alone exceeds $8 billion
 
 A moderate hub disruption — 30 minutes at ORD, 8–12 aircraft — reaches $200,000–$400,000 in total cost when the full cascade is counted.
 
-The $74–100 figure is a fleet average. The joint allocation problem cannot be solved optimally with an average — a B737 ORD-DEN and a B777 ORD-NRT are not the same decision. The cost function must differentiate by aircraft type, route revenue, and passenger mix.
+The fleet average understates true allocation stakes. A B737 ORD-DEN and a B777 ORD-NRT are not the same decision — the per-minute cost difference is nearly an order of magnitude. The cost function must differentiate by aircraft type, route revenue, and passenger mix.
 
 ---
 
 ## What Was Mapped — and What Is Deliberately Out of Scope
 
-
+The problem is larger than the first version. Every exclusion below was considered first. The lines are drawn deliberately, not by accident.
 
 ### Resources
 
@@ -160,7 +160,7 @@ Three tiers, three code paths:
 |------------|-------|-----------|
 | 10–20 reserve pilots per type at a major hub | Industry estimate | Actual reserve pool depth from carrier |
 | 45–55 min minimum turn for B737 | Published ops documentation | Carrier-specific turn times by aircraft type |
-| $74–100/min direct delay cost | Eurocontrol Standard Inputs | Carrier-specific operating cost by fleet type |
+| ~$100/min direct delay cost (U.S. fleet avg; $74–100/min narrowbody) | A4A Annual Economic Report (2024); Eurocontrol Standard Inputs | Carrier-specific operating cost by fleet type |
 | 15–20 min dispatcher awareness window | Practitioner accounts | OCC observation during live disruption |
 | Dispatchers allocate sequentially today | Industry understanding | OCC observation — confirm or refute |
 | Gate congestion adds 10–20% to disruption window | Estimate from reasoning | Airport ops data or OCC observation |
@@ -193,7 +193,7 @@ A reasoning layer on top of the airline's existing systems. Not a replacement �
 **Four agents, coordinated.** The system is not a monolithic reasoner. Each domain has a specialist:
 
 - **CrewAgent** — owns FAA Part 117 FDP limits (Table B, implemented exactly — an approximation that clears an illegal crew member creates direct regulatory liability), reserve availability by type rating, role, and station
-- **AircraftAgent** — owns type rating constraints, spare aircraft availability, and the fleet cost model (three tiers: widebody international at $180/min, narrowbody at $74–95/min, regional at $40/min — a flat function is an order-of-magnitude error in allocation priority)
+- **AircraftAgent** — owns type rating constraints, spare aircraft availability, and the fleet cost model (three tiers: widebody international at $150–200+/min, narrowbody at $74–100/min, regional at $30–50/min — a flat function is an order-of-magnitude error in allocation priority)
 - **PassengerAgent** — owns connection risk and delay-dependent misconnection cost; different delays break different connections, so cost is computed per option, not per flight
 - **CoordinatingAgent** — orchestrates the three specialists; manages the shared resource pool across all affected flights simultaneously, ordered by passenger count, with full pool visibility before each commitment is made
 
@@ -261,4 +261,4 @@ The 15–20 minute awareness window, the true joint allocation failure rate, and
 
 ---
 
-*Sources: FAA NEXTOR Total Delay Impact Study; Airlines for America Annual Economic Report; Eurocontrol Standard Inputs for Cost-Benefit Analyses; Bratu & Barnhart (2006), Journal of Scheduling; FAA ASPM data.*
+*Sources: FAA NEXTOR Total Delay Impact Study; Airlines for America Annual Economic Report (2024); Eurocontrol Standard Inputs for Cost-Benefit Analyses; Bratu & Barnhart (2006), Journal of Scheduling; FAA ASPM data.*
