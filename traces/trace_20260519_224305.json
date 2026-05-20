@@ -1,0 +1,642 @@
+{
+  "trace_id": "trace_20260519_224305",
+  "timestamp": "2026-05-19T22:43:05.522690",
+  "disruption_event": {
+    "event_id": "EVT_ORD_20250615_P75",
+    "hub": "ORD",
+    "start_time": "2025-06-15T10:00:00",
+    "duration_minutes": 30,
+    "effective_window_minutes": 150,
+    "scenario": "P75"
+  },
+  "cascade_graph": {
+    "nodes": [
+      "ORD",
+      "MDW",
+      "JFK",
+      "SEA",
+      "DEN",
+      "LHR",
+      "BMI",
+      "MIA",
+      "FRA",
+      "MSN",
+      "LAX",
+      "LAS",
+      "BOS",
+      "GRR",
+      "HNL",
+      "MKE",
+      "PHX",
+      "CMI",
+      "NRT"
+    ],
+    "edges": [
+      {
+        "from": "ORD",
+        "to": "MDW",
+        "flight_id": "UA100",
+        "aircraft_type": "regional"
+      },
+      {
+        "from": "ORD",
+        "to": "JFK",
+        "flight_id": "UA109",
+        "aircraft_type": "narrowbody"
+      },
+      {
+        "from": "ORD",
+        "to": "DEN",
+        "flight_id": "UA110",
+        "aircraft_type": "narrowbody"
+      },
+      {
+        "from": "ORD",
+        "to": "BMI",
+        "flight_id": "UA105",
+        "aircraft_type": "regional"
+      },
+      {
+        "from": "ORD",
+        "to": "FRA",
+        "flight_id": "UA119",
+        "aircraft_type": "widebody"
+      },
+      {
+        "from": "ORD",
+        "to": "MSN",
+        "flight_id": "UA101",
+        "aircraft_type": "regional"
+      },
+      {
+        "from": "ORD",
+        "to": "LAX",
+        "flight_id": "UA115",
+        "aircraft_type": "widebody_domestic"
+      },
+      {
+        "from": "ORD",
+        "to": "LAS",
+        "flight_id": "UA106",
+        "aircraft_type": "narrowbody"
+      },
+      {
+        "from": "ORD",
+        "to": "BOS",
+        "flight_id": "UA111",
+        "aircraft_type": "narrowbody"
+      },
+      {
+        "from": "ORD",
+        "to": "HNL",
+        "flight_id": "UA116",
+        "aircraft_type": "widebody_domestic"
+      },
+      {
+        "from": "ORD",
+        "to": "MKE",
+        "flight_id": "UA102",
+        "aircraft_type": "regional"
+      },
+      {
+        "from": "ORD",
+        "to": "LHR",
+        "flight_id": "UA118",
+        "aircraft_type": "widebody"
+      },
+      {
+        "from": "ORD",
+        "to": "PHX",
+        "flight_id": "UA108",
+        "aircraft_type": "narrowbody"
+      },
+      {
+        "from": "ORD",
+        "to": "MIA",
+        "flight_id": "UA107",
+        "aircraft_type": "narrowbody"
+      },
+      {
+        "from": "ORD",
+        "to": "NRT",
+        "flight_id": "UA120",
+        "aircraft_type": "widebody"
+      },
+      {
+        "from": "SEA",
+        "to": "ORD",
+        "flight_id": "UA117",
+        "aircraft_type": "widebody_domestic"
+      },
+      {
+        "from": "DEN",
+        "to": "ORD",
+        "flight_id": "UA112",
+        "aircraft_type": "narrowbody"
+      },
+      {
+        "from": "LHR",
+        "to": "ORD",
+        "flight_id": "UA121",
+        "aircraft_type": "widebody"
+      },
+      {
+        "from": "MIA",
+        "to": "ORD",
+        "flight_id": "UA113",
+        "aircraft_type": "narrowbody"
+      },
+      {
+        "from": "BOS",
+        "to": "ORD",
+        "flight_id": "UA114",
+        "aircraft_type": "narrowbody"
+      },
+      {
+        "from": "GRR",
+        "to": "ORD",
+        "flight_id": "UA103",
+        "aircraft_type": "regional"
+      },
+      {
+        "from": "CMI",
+        "to": "ORD",
+        "flight_id": "UA104",
+        "aircraft_type": "regional"
+      }
+    ]
+  },
+  "affected_flights": [
+    "UA113",
+    "UA119",
+    "UA101",
+    "UA115",
+    "UA112",
+    "UA106",
+    "UA111",
+    "UA103",
+    "UA116",
+    "UA102",
+    "UA118",
+    "UA108",
+    "UA104",
+    "UA114",
+    "UA107",
+    "UA120"
+  ],
+  "options_generated": {
+    "pool_aware": [
+      {
+        "flight_id": "UA119",
+        "option_id": "UA119_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 225,
+        "aircraft_cost": 39375.0,
+        "passenger_cost": 75075.0,
+        "crew_activation_cost": 0.0,
+        "ferry_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 114450.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA118",
+        "option_id": "UA118_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 225,
+        "aircraft_cost": 39375.0,
+        "passenger_cost": 72800.0,
+        "crew_activation_cost": 0.0,
+        "ferry_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 112175.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA120",
+        "option_id": "UA120_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 225,
+        "aircraft_cost": 39375.0,
+        "passenger_cost": 71207.5,
+        "crew_activation_cost": 0.0,
+        "ferry_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 110582.5,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA115",
+        "option_id": "UA115_RSV_B777_CA_00_RSV_B777_FO_01",
+        "reserve_ca": "RSV_B777_CA_00",
+        "reserve_fo": "RSV_B777_FO_01",
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 10125.0,
+        "passenger_cost": 24000.0,
+        "crew_activation_cost": 1600.0,
+        "ferry_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 35725.0,
+        "hard_constraints_checked": [
+          "type_rating",
+          "role",
+          "domicile",
+          "callout_window",
+          "fdp_part117",
+          "committed_pool",
+          "gate_availability"
+        ],
+        "hard_constraints_violated": [],
+        "feasible": true
+      },
+      {
+        "flight_id": "UA116",
+        "option_id": "UA116_RSV_B787_CA_00_RSV_B787_FO_01",
+        "reserve_ca": "RSV_B787_CA_00",
+        "reserve_fo": "RSV_B787_FO_01",
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 10125.0,
+        "passenger_cost": 22000.0,
+        "crew_activation_cost": 1600.0,
+        "ferry_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 33725.0,
+        "hard_constraints_checked": [
+          "type_rating",
+          "role",
+          "domicile",
+          "callout_window",
+          "fdp_part117",
+          "committed_pool",
+          "gate_availability"
+        ],
+        "hard_constraints_violated": [],
+        "feasible": true
+      },
+      {
+        "flight_id": "UA114",
+        "option_id": "UA114_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 225,
+        "aircraft_cost": 19575.0,
+        "passenger_cost": 38280.0,
+        "crew_activation_cost": 0.0,
+        "ferry_cost": 900.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 58755.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE",
+          "INBOUND_DIVERSION_RISK"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA111",
+        "option_id": "UA111_RSV_B737_CA_00_RSV_B737_FO_01",
+        "reserve_ca": "RSV_B737_CA_00",
+        "reserve_fo": "RSV_B737_FO_01",
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 6525.0,
+        "passenger_cost": 14400.0,
+        "crew_activation_cost": 1600.0,
+        "ferry_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 22525.0,
+        "hard_constraints_checked": [
+          "type_rating",
+          "role",
+          "domicile",
+          "callout_window",
+          "fdp_part117",
+          "committed_pool",
+          "gate_availability"
+        ],
+        "hard_constraints_violated": [],
+        "feasible": true
+      },
+      {
+        "flight_id": "UA112",
+        "option_id": "UA112_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 225,
+        "aircraft_cost": 19575.0,
+        "passenger_cost": 35640.0,
+        "crew_activation_cost": 0.0,
+        "ferry_cost": 900.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 56115.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE",
+          "INBOUND_DIVERSION_RISK"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA107",
+        "option_id": "UA107_RSV_B737_CA_02_RSV_B737_FO_03",
+        "reserve_ca": "RSV_B737_CA_02",
+        "reserve_fo": "RSV_B737_FO_03",
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 6525.0,
+        "passenger_cost": 13040.0,
+        "crew_activation_cost": 1600.0,
+        "ferry_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 21165.0,
+        "hard_constraints_checked": [
+          "type_rating",
+          "role",
+          "domicile",
+          "callout_window",
+          "fdp_part117",
+          "committed_pool",
+          "gate_availability"
+        ],
+        "hard_constraints_violated": [],
+        "feasible": true
+      },
+      {
+        "flight_id": "UA106",
+        "option_id": "UA106_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 225,
+        "aircraft_cost": 19575.0,
+        "passenger_cost": 34760.0,
+        "crew_activation_cost": 0.0,
+        "ferry_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 54335.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA113",
+        "option_id": "UA113_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 225,
+        "aircraft_cost": 19575.0,
+        "passenger_cost": 31680.0,
+        "crew_activation_cost": 0.0,
+        "ferry_cost": 900.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 52155.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE",
+          "INBOUND_DIVERSION_RISK"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA108",
+        "option_id": "UA108_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 225,
+        "aircraft_cost": 19575.0,
+        "passenger_cost": 31680.0,
+        "crew_activation_cost": 0.0,
+        "ferry_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 51255.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA102",
+        "option_id": "UA102_RSV_E175_CA_00_RSV_E175_FO_01",
+        "reserve_ca": "RSV_E175_CA_00",
+        "reserve_fo": "RSV_E175_FO_01",
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 3000.0,
+        "passenger_cost": 18200.0,
+        "crew_activation_cost": 1600.0,
+        "ferry_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 22800.0,
+        "hard_constraints_checked": [
+          "type_rating",
+          "role",
+          "domicile",
+          "callout_window",
+          "fdp_part117",
+          "committed_pool",
+          "gate_availability"
+        ],
+        "hard_constraints_violated": [],
+        "feasible": true
+      },
+      {
+        "flight_id": "UA103",
+        "option_id": "UA103_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 225,
+        "aircraft_cost": 9000.0,
+        "passenger_cost": 35840.0,
+        "crew_activation_cost": 0.0,
+        "ferry_cost": 240.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 45080.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE",
+          "INBOUND_DIVERSION_RISK"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA104",
+        "option_id": "UA104_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 225,
+        "aircraft_cost": 9000.0,
+        "passenger_cost": 28000.0,
+        "crew_activation_cost": 0.0,
+        "ferry_cost": 240.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 37240.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE",
+          "INBOUND_DIVERSION_RISK"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA101",
+        "option_id": "UA101_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 225,
+        "aircraft_cost": 9000.0,
+        "passenger_cost": 28000.0,
+        "crew_activation_cost": 0.0,
+        "ferry_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 37000.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      }
+    ],
+    "greedy": [
+      {
+        "flight_id": "UA113",
+        "feasible": false,
+        "total_cost": 52155.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA119",
+        "feasible": false,
+        "total_cost": 114450.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA101",
+        "feasible": false,
+        "total_cost": 37000.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA115",
+        "feasible": true,
+        "total_cost": 35725.0,
+        "reserve_ca": "RSV_B777_CA_00",
+        "reserve_fo": "RSV_B777_FO_01"
+      },
+      {
+        "flight_id": "UA112",
+        "feasible": false,
+        "total_cost": 56115.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA106",
+        "feasible": true,
+        "total_cost": 20765.0,
+        "reserve_ca": "RSV_B737_CA_00",
+        "reserve_fo": "RSV_B737_FO_01"
+      },
+      {
+        "flight_id": "UA111",
+        "feasible": true,
+        "total_cost": 22525.0,
+        "reserve_ca": "RSV_B737_CA_02",
+        "reserve_fo": "RSV_B737_FO_03"
+      },
+      {
+        "flight_id": "UA103",
+        "feasible": false,
+        "total_cost": 45080.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA116",
+        "feasible": true,
+        "total_cost": 33725.0,
+        "reserve_ca": "RSV_B787_CA_00",
+        "reserve_fo": "RSV_B787_FO_01"
+      },
+      {
+        "flight_id": "UA102",
+        "feasible": true,
+        "total_cost": 22800.0,
+        "reserve_ca": "RSV_E175_CA_00",
+        "reserve_fo": "RSV_E175_FO_01"
+      },
+      {
+        "flight_id": "UA118",
+        "feasible": false,
+        "total_cost": 112175.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA108",
+        "feasible": false,
+        "total_cost": 51255.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA104",
+        "feasible": false,
+        "total_cost": 37240.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA114",
+        "feasible": false,
+        "total_cost": 58755.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA107",
+        "feasible": false,
+        "total_cost": 55435.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA120",
+        "feasible": false,
+        "total_cost": 110582.5,
+        "reserve_ca": null,
+        "reserve_fo": null
+      }
+    ]
+  },
+  "allocation_comparison": {
+    "pool_aware_total_cost": 865082.5,
+    "greedy_total_cost": 865782.5,
+    "delta": 700.0,
+    "pool_aware_uncovered": 11,
+    "greedy_uncovered": 11
+  },
+  "option_selected": "UA115_RSV_B777_CA_00_RSV_B777_FO_01",
+  "predicted_cost": 135940.0,
+  "dispatcher_decisions": {},
+  "actual_cost": null,
+  "outcome": null,
+  "override_reason": null,
+  "llm_narration": ""
+}

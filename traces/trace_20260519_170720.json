@@ -1,0 +1,781 @@
+{
+  "trace_id": "trace_20260519_170720",
+  "timestamp": "2026-05-19T17:07:20.302147",
+  "disruption_event": {
+    "event_id": "TEST",
+    "hub": "ORD",
+    "start_time": "2025-06-15T10:00:00",
+    "duration_minutes": 30,
+    "effective_window_minutes": 90,
+    "scenario": "P75"
+  },
+  "cascade_graph": {
+    "nodes": [
+      "ORD",
+      "DTW",
+      "STL",
+      "GRR",
+      "MKE",
+      "CLE",
+      "CMI",
+      "DEN",
+      "ATL",
+      "BOS",
+      "JFK",
+      "SFO",
+      "LAX",
+      "MSP",
+      "SEA",
+      "NRT",
+      "LHR",
+      "GRU",
+      "BDL",
+      "RDU"
+    ],
+    "edges": [
+      {
+        "from": "ORD",
+        "to": "DTW",
+        "flight_id": "UA4501",
+        "aircraft_type": "regional"
+      },
+      {
+        "from": "ORD",
+        "to": "STL",
+        "flight_id": "UA4502",
+        "aircraft_type": "regional"
+      },
+      {
+        "from": "ORD",
+        "to": "MKE",
+        "flight_id": "UA4504",
+        "aircraft_type": "regional"
+      },
+      {
+        "from": "ORD",
+        "to": "CLE",
+        "flight_id": "UA4505",
+        "aircraft_type": "regional"
+      },
+      {
+        "from": "ORD",
+        "to": "DEN",
+        "flight_id": "UA201",
+        "aircraft_type": "narrowbody"
+      },
+      {
+        "from": "ORD",
+        "to": "ATL",
+        "flight_id": "UA202",
+        "aircraft_type": "narrowbody"
+      },
+      {
+        "from": "ORD",
+        "to": "BOS",
+        "flight_id": "UA203",
+        "aircraft_type": "narrowbody"
+      },
+      {
+        "from": "ORD",
+        "to": "JFK",
+        "flight_id": "UA204",
+        "aircraft_type": "narrowbody"
+      },
+      {
+        "from": "ORD",
+        "to": "SFO",
+        "flight_id": "UA205",
+        "aircraft_type": "narrowbody"
+      },
+      {
+        "from": "ORD",
+        "to": "MSP",
+        "flight_id": "UA208",
+        "aircraft_type": "narrowbody"
+      },
+      {
+        "from": "ORD",
+        "to": "LAX",
+        "flight_id": "UA301",
+        "aircraft_type": "widebody_domestic"
+      },
+      {
+        "from": "ORD",
+        "to": "SEA",
+        "flight_id": "UA302",
+        "aircraft_type": "widebody_domestic"
+      },
+      {
+        "from": "ORD",
+        "to": "NRT",
+        "flight_id": "UA901",
+        "aircraft_type": "widebody"
+      },
+      {
+        "from": "ORD",
+        "to": "LHR",
+        "flight_id": "UA902",
+        "aircraft_type": "widebody"
+      },
+      {
+        "from": "ORD",
+        "to": "GRU",
+        "flight_id": "UA904",
+        "aircraft_type": "widebody"
+      },
+      {
+        "from": "GRR",
+        "to": "ORD",
+        "flight_id": "UA4503",
+        "aircraft_type": "regional"
+      },
+      {
+        "from": "CMI",
+        "to": "ORD",
+        "flight_id": "UA4506",
+        "aircraft_type": "regional"
+      },
+      {
+        "from": "DEN",
+        "to": "BDL",
+        "flight_id": "UA501",
+        "aircraft_type": "narrowbody"
+      },
+      {
+        "from": "ATL",
+        "to": "RDU",
+        "flight_id": "UA502",
+        "aircraft_type": "narrowbody"
+      },
+      {
+        "from": "BOS",
+        "to": "ORD",
+        "flight_id": "UA207",
+        "aircraft_type": "narrowbody"
+      },
+      {
+        "from": "LAX",
+        "to": "ORD",
+        "flight_id": "UA206",
+        "aircraft_type": "narrowbody"
+      },
+      {
+        "from": "SEA",
+        "to": "ORD",
+        "flight_id": "UA303",
+        "aircraft_type": "widebody_domestic"
+      },
+      {
+        "from": "LHR",
+        "to": "ORD",
+        "flight_id": "UA903",
+        "aircraft_type": "widebody"
+      }
+    ]
+  },
+  "affected_flights": [
+    "UA4501",
+    "UA4502",
+    "UA4503",
+    "UA4504",
+    "UA4505",
+    "UA4506",
+    "UA201",
+    "UA202",
+    "UA203",
+    "UA204",
+    "UA205",
+    "UA206",
+    "UA207",
+    "UA208",
+    "UA301",
+    "UA302",
+    "UA303",
+    "UA901",
+    "UA902",
+    "UA903",
+    "UA904",
+    "UA501",
+    "UA502"
+  ],
+  "options_generated": {
+    "pool_aware": [
+      {
+        "flight_id": "UA901",
+        "option_id": "UA901_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 13125.0,
+        "passenger_cost": 20475.0,
+        "crew_activation_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 33600.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA902",
+        "option_id": "UA902_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 13125.0,
+        "passenger_cost": 21125.0,
+        "crew_activation_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 34250.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA903",
+        "option_id": "UA903_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 13125.0,
+        "passenger_cost": 18850.0,
+        "crew_activation_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 31975.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA904",
+        "option_id": "UA904_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 13125.0,
+        "passenger_cost": 19370.0,
+        "crew_activation_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 32495.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA301",
+        "option_id": "UA301_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 10125.0,
+        "passenger_cost": 22500.0,
+        "crew_activation_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 32625.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA302",
+        "option_id": "UA302_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 10125.0,
+        "passenger_cost": 21500.0,
+        "crew_activation_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 31625.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA303",
+        "option_id": "UA303_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 10125.0,
+        "passenger_cost": 23000.0,
+        "crew_activation_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 33125.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA201",
+        "option_id": "UA201_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 6525.0,
+        "passenger_cost": 13200.0,
+        "crew_activation_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 19725.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA202",
+        "option_id": "UA202_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 6525.0,
+        "passenger_cost": 12640.0,
+        "crew_activation_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 19165.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA203",
+        "option_id": "UA203_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 6525.0,
+        "passenger_cost": 13760.0,
+        "crew_activation_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 20285.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA204",
+        "option_id": "UA204_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 6525.0,
+        "passenger_cost": 11840.0,
+        "crew_activation_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 18365.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA205",
+        "option_id": "UA205_RSV_B737_CA_00_RSV_B737_FO_01",
+        "reserve_ca": "RSV_B737_CA_00",
+        "reserve_fo": "RSV_B737_FO_01",
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 6525.0,
+        "passenger_cost": 14000.0,
+        "crew_activation_cost": 1600.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 22125.0,
+        "hard_constraints_checked": [
+          "type_rating",
+          "role",
+          "domicile",
+          "callout_window",
+          "fdp_part117",
+          "committed_pool"
+        ],
+        "hard_constraints_violated": [],
+        "feasible": true
+      },
+      {
+        "flight_id": "UA206",
+        "option_id": "UA206_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 6525.0,
+        "passenger_cost": 12400.0,
+        "crew_activation_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 18925.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA207",
+        "option_id": "UA207_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 6525.0,
+        "passenger_cost": 12960.0,
+        "crew_activation_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 19485.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA208",
+        "option_id": "UA208_RSV_B737_CA_02_RSV_B737_FO_03",
+        "reserve_ca": "RSV_B737_CA_02",
+        "reserve_fo": "RSV_B737_FO_03",
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 6525.0,
+        "passenger_cost": 11520.0,
+        "crew_activation_cost": 1600.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 19645.0,
+        "hard_constraints_checked": [
+          "type_rating",
+          "role",
+          "domicile",
+          "callout_window",
+          "fdp_part117",
+          "committed_pool"
+        ],
+        "hard_constraints_violated": [],
+        "feasible": true
+      },
+      {
+        "flight_id": "UA501",
+        "option_id": "UA501_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 6525.0,
+        "passenger_cost": 11600.0,
+        "crew_activation_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 18125.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA502",
+        "option_id": "UA502_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 6525.0,
+        "passenger_cost": 11040.0,
+        "crew_activation_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 17565.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA4501",
+        "option_id": "UA4501_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 3000.0,
+        "passenger_cost": 17680.0,
+        "crew_activation_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 20680.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA4502",
+        "option_id": "UA4502_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 3000.0,
+        "passenger_cost": 18720.0,
+        "crew_activation_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 21720.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA4503",
+        "option_id": "UA4503_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 3000.0,
+        "passenger_cost": 14040.0,
+        "crew_activation_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 17040.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA4504",
+        "option_id": "UA4504_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 3000.0,
+        "passenger_cost": 15860.0,
+        "crew_activation_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 18860.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA4505",
+        "option_id": "UA4505_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 3000.0,
+        "passenger_cost": 15080.0,
+        "crew_activation_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 18080.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA4506",
+        "option_id": "UA4506_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 75,
+        "aircraft_cost": 3000.0,
+        "passenger_cost": 13000.0,
+        "crew_activation_cost": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 16000.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE"
+        ],
+        "feasible": false
+      }
+    ],
+    "greedy": [
+      {
+        "flight_id": "UA303",
+        "feasible": false,
+        "total_cost": 33125.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA4503",
+        "feasible": false,
+        "total_cost": 17040.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA206",
+        "feasible": false,
+        "total_cost": 18925.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA4501",
+        "feasible": false,
+        "total_cost": 20680.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA207",
+        "feasible": false,
+        "total_cost": 19485.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA201",
+        "feasible": false,
+        "total_cost": 19725.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA4502",
+        "feasible": false,
+        "total_cost": 21720.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA202",
+        "feasible": false,
+        "total_cost": 19165.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA4506",
+        "feasible": false,
+        "total_cost": 16000.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA301",
+        "feasible": false,
+        "total_cost": 32625.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA903",
+        "feasible": false,
+        "total_cost": 31975.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA4504",
+        "feasible": false,
+        "total_cost": 18860.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA203",
+        "feasible": false,
+        "total_cost": 20285.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA302",
+        "feasible": false,
+        "total_cost": 31625.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA4505",
+        "feasible": false,
+        "total_cost": 18080.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA204",
+        "feasible": false,
+        "total_cost": 18365.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA205",
+        "feasible": true,
+        "total_cost": 22125.0,
+        "reserve_ca": "RSV_B737_CA_00",
+        "reserve_fo": "RSV_B737_FO_01"
+      },
+      {
+        "flight_id": "UA901",
+        "feasible": false,
+        "total_cost": 33600.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA208",
+        "feasible": true,
+        "total_cost": 19645.0,
+        "reserve_ca": "RSV_B737_CA_02",
+        "reserve_fo": "RSV_B737_FO_03"
+      },
+      {
+        "flight_id": "UA902",
+        "feasible": false,
+        "total_cost": 34250.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA501",
+        "feasible": false,
+        "total_cost": 18125.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA904",
+        "feasible": false,
+        "total_cost": 32495.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA502",
+        "feasible": false,
+        "total_cost": 17565.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      }
+    ]
+  },
+  "allocation_comparison": {
+    "pool_aware_total_cost": 535485.0,
+    "greedy_total_cost": 535485.0,
+    "delta": 0.0,
+    "pool_aware_uncovered": 21,
+    "greedy_uncovered": 21
+  },
+  "option_selected": "UA205_RSV_B737_CA_00_RSV_B737_FO_01",
+  "predicted_cost": 41770.0,
+  "actual_cost": null,
+  "override_reason": null,
+  "llm_narration": "test narration"
+}

@@ -1,0 +1,421 @@
+{
+  "trace_id": "trace_20260520_091948",
+  "timestamp": "2026-05-20T09:19:48.619562",
+  "disruption_event": {
+    "event_id": "EVT_ORD_20250615_P90",
+    "hub": "ORD",
+    "start_time": "2025-06-15T10:00:00",
+    "duration_minutes": 30,
+    "effective_window_minutes": 180,
+    "scenario": "P90"
+  },
+  "cascade_graph": {
+    "nodes": [
+      "ORD",
+      "MSP",
+      "MKE",
+      "DEN",
+      "BOS",
+      "DFW",
+      "LAX",
+      "SFO",
+      "SEA",
+      "LHR",
+      "NRT"
+    ],
+    "edges": [
+      {
+        "from": "ORD",
+        "to": "MSP",
+        "flight_id": "UA100",
+        "aircraft_type": "regional"
+      },
+      {
+        "from": "ORD",
+        "to": "MKE",
+        "flight_id": "UA101",
+        "aircraft_type": "regional"
+      },
+      {
+        "from": "ORD",
+        "to": "DEN",
+        "flight_id": "UA102",
+        "aircraft_type": "narrowbody"
+      },
+      {
+        "from": "ORD",
+        "to": "BOS",
+        "flight_id": "UA103",
+        "aircraft_type": "narrowbody"
+      },
+      {
+        "from": "ORD",
+        "to": "DFW",
+        "flight_id": "UA104",
+        "aircraft_type": "narrowbody"
+      },
+      {
+        "from": "ORD",
+        "to": "LAX",
+        "flight_id": "UA105",
+        "aircraft_type": "narrowbody"
+      },
+      {
+        "from": "ORD",
+        "to": "SFO",
+        "flight_id": "UA106",
+        "aircraft_type": "widebody_domestic"
+      },
+      {
+        "from": "ORD",
+        "to": "SEA",
+        "flight_id": "UA107",
+        "aircraft_type": "widebody_domestic"
+      },
+      {
+        "from": "ORD",
+        "to": "LHR",
+        "flight_id": "UA108",
+        "aircraft_type": "widebody"
+      },
+      {
+        "from": "ORD",
+        "to": "NRT",
+        "flight_id": "UA109",
+        "aircraft_type": "widebody"
+      }
+    ]
+  },
+  "affected_flights": [
+    "UA100",
+    "UA101",
+    "UA102",
+    "UA103",
+    "UA104",
+    "UA105",
+    "UA106",
+    "UA107",
+    "UA108",
+    "UA109"
+  ],
+  "options_generated": {
+    "pool_aware": [
+      {
+        "flight_id": "UA109",
+        "option_id": "UA109_RSV_B777_CA_00_RSV_B777_FO_01",
+        "reserve_ca": "RSV_B777_CA_00",
+        "reserve_fo": "RSV_B777_FO_01",
+        "estimated_delay_minutes": 90,
+        "aircraft_cost": 15750.0,
+        "passenger_cost": 40950.0,
+        "crew_activation_cost": 1600.0,
+        "ferry_cost": 0.0,
+        "dot_fine": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 58300.0,
+        "hard_constraints_checked": [
+          "type_rating",
+          "role",
+          "domicile",
+          "callout_window",
+          "fdp_part117",
+          "committed_pool",
+          "gate_availability"
+        ],
+        "hard_constraints_violated": [],
+        "feasible": true
+      },
+      {
+        "flight_id": "UA108",
+        "option_id": "UA108_RSV_B787_CA_00_RSV_B787_FO_01",
+        "reserve_ca": "RSV_B787_CA_00",
+        "reserve_fo": "RSV_B787_FO_01",
+        "estimated_delay_minutes": 90,
+        "aircraft_cost": 15750.0,
+        "passenger_cost": 34612.5,
+        "crew_activation_cost": 1600.0,
+        "ferry_cost": 0.0,
+        "dot_fine": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 51962.5,
+        "hard_constraints_checked": [
+          "type_rating",
+          "role",
+          "domicile",
+          "callout_window",
+          "fdp_part117",
+          "committed_pool",
+          "gate_availability"
+        ],
+        "hard_constraints_violated": [],
+        "feasible": true
+      },
+      {
+        "flight_id": "UA107",
+        "option_id": "UA107_RSV_B787_CA_02_RSV_B787_FO_03",
+        "reserve_ca": "RSV_B787_CA_02",
+        "reserve_fo": "RSV_B787_FO_03",
+        "estimated_delay_minutes": 90,
+        "aircraft_cost": 12150.0,
+        "passenger_cost": 40800.0,
+        "crew_activation_cost": 1600.0,
+        "ferry_cost": 0.0,
+        "dot_fine": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 54550.0,
+        "hard_constraints_checked": [
+          "type_rating",
+          "role",
+          "domicile",
+          "callout_window",
+          "fdp_part117",
+          "committed_pool",
+          "gate_availability"
+        ],
+        "hard_constraints_violated": [],
+        "feasible": true
+      },
+      {
+        "flight_id": "UA106",
+        "option_id": "UA106_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 270,
+        "aircraft_cost": 36450.0,
+        "passenger_cost": 72875.0,
+        "crew_activation_cost": 0.0,
+        "ferry_cost": 0.0,
+        "dot_fine": 27500.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 136825.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE",
+          "DOT_TARMAC"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA105",
+        "option_id": "UA105_RSV_B737_CA_00_RSV_B737_FO_01",
+        "reserve_ca": "RSV_B737_CA_00",
+        "reserve_fo": "RSV_B737_FO_01",
+        "estimated_delay_minutes": 90,
+        "aircraft_cost": 7830.0,
+        "passenger_cost": 19560.0,
+        "crew_activation_cost": 1600.0,
+        "ferry_cost": 0.0,
+        "dot_fine": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 28990.0,
+        "hard_constraints_checked": [
+          "type_rating",
+          "role",
+          "domicile",
+          "callout_window",
+          "fdp_part117",
+          "committed_pool",
+          "gate_availability"
+        ],
+        "hard_constraints_violated": [],
+        "feasible": true
+      },
+      {
+        "flight_id": "UA104",
+        "option_id": "UA104_RSV_B737_CA_02_RSV_B737_FO_03",
+        "reserve_ca": "RSV_B737_CA_02",
+        "reserve_fo": "RSV_B737_FO_03",
+        "estimated_delay_minutes": 90,
+        "aircraft_cost": 7830.0,
+        "passenger_cost": 18960.0,
+        "crew_activation_cost": 1600.0,
+        "ferry_cost": 0.0,
+        "dot_fine": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 28390.0,
+        "hard_constraints_checked": [
+          "type_rating",
+          "role",
+          "domicile",
+          "callout_window",
+          "fdp_part117",
+          "committed_pool",
+          "gate_availability"
+        ],
+        "hard_constraints_violated": [],
+        "feasible": true
+      },
+      {
+        "flight_id": "UA103",
+        "option_id": "UA103_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 270,
+        "aircraft_cost": 23490.0,
+        "passenger_cost": 33440.0,
+        "crew_activation_cost": 0.0,
+        "ferry_cost": 0.0,
+        "dot_fine": 27500.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 84430.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE",
+          "DOT_TARMAC"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA102",
+        "option_id": "UA102_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 270,
+        "aircraft_cost": 23490.0,
+        "passenger_cost": 32560.0,
+        "crew_activation_cost": 0.0,
+        "ferry_cost": 0.0,
+        "dot_fine": 27500.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 83550.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE",
+          "DOT_TARMAC"
+        ],
+        "feasible": false
+      },
+      {
+        "flight_id": "UA100",
+        "option_id": "UA100_RSV_E175_CA_00_RSV_E175_FO_01",
+        "reserve_ca": "RSV_E175_CA_00",
+        "reserve_fo": "RSV_E175_FO_01",
+        "estimated_delay_minutes": 90,
+        "aircraft_cost": 3600.0,
+        "passenger_cost": 28800.0,
+        "crew_activation_cost": 1600.0,
+        "ferry_cost": 0.0,
+        "dot_fine": 0.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 34000.0,
+        "hard_constraints_checked": [
+          "type_rating",
+          "role",
+          "domicile",
+          "callout_window",
+          "fdp_part117",
+          "committed_pool",
+          "gate_availability"
+        ],
+        "hard_constraints_violated": [],
+        "feasible": true
+      },
+      {
+        "flight_id": "UA101",
+        "option_id": "UA101_UNCOVERED",
+        "reserve_ca": null,
+        "reserve_fo": null,
+        "estimated_delay_minutes": 270,
+        "aircraft_cost": 10800.0,
+        "passenger_cost": 43680.0,
+        "crew_activation_cost": 0.0,
+        "ferry_cost": 0.0,
+        "dot_fine": 27500.0,
+        "soft_constraint_penalties": {},
+        "total_cost": 81980.0,
+        "hard_constraints_checked": [],
+        "hard_constraints_violated": [
+          "NO_LEGAL_CREW_AVAILABLE",
+          "DOT_TARMAC"
+        ],
+        "feasible": false
+      }
+    ],
+    "greedy": [
+      {
+        "flight_id": "UA100",
+        "feasible": true,
+        "total_cost": 34000.0,
+        "reserve_ca": "RSV_E175_CA_00",
+        "reserve_fo": "RSV_E175_FO_01"
+      },
+      {
+        "flight_id": "UA101",
+        "feasible": false,
+        "total_cost": 81980.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA102",
+        "feasible": true,
+        "total_cost": 27190.0,
+        "reserve_ca": "RSV_B737_CA_00",
+        "reserve_fo": "RSV_B737_FO_01"
+      },
+      {
+        "flight_id": "UA103",
+        "feasible": true,
+        "total_cost": 27670.0,
+        "reserve_ca": "RSV_B737_CA_02",
+        "reserve_fo": "RSV_B737_FO_03"
+      },
+      {
+        "flight_id": "UA104",
+        "feasible": false,
+        "total_cost": 85750.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA105",
+        "feasible": false,
+        "total_cost": 86850.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      },
+      {
+        "flight_id": "UA106",
+        "feasible": true,
+        "total_cost": 53500.0,
+        "reserve_ca": "RSV_B777_CA_00",
+        "reserve_fo": "RSV_B777_FO_01"
+      },
+      {
+        "flight_id": "UA107",
+        "feasible": true,
+        "total_cost": 54550.0,
+        "reserve_ca": "RSV_B787_CA_00",
+        "reserve_fo": "RSV_B787_FO_01"
+      },
+      {
+        "flight_id": "UA108",
+        "feasible": true,
+        "total_cost": 51962.5,
+        "reserve_ca": "RSV_B787_CA_02",
+        "reserve_fo": "RSV_B787_FO_03"
+      },
+      {
+        "flight_id": "UA109",
+        "feasible": false,
+        "total_cost": 170300.0,
+        "reserve_ca": null,
+        "reserve_fo": null
+      }
+    ]
+  },
+  "allocation_comparison": {
+    "pool_aware_total_cost": 642977.5,
+    "greedy_total_cost": 673752.5,
+    "delta": 30775.0,
+    "pool_aware_uncovered": 4,
+    "greedy_uncovered": 4
+  },
+  "option_selected": "UA109_RSV_B777_CA_00_RSV_B777_FO_01",
+  "predicted_cost": 256192.5,
+  "dispatcher_decisions": {},
+  "actual_cost": null,
+  "outcome": null,
+  "override_reason": null,
+  "llm_narration": "The pool-aware allocation saves **$30,775** compared to greedy departure-order sequencing by prioritizing flights with the highest total cost impact. It covers six flights (UA109, UA108, UA107, UA105, UA104, UA100) with combined costs of $227,802, while leaving four flights uncovered with a total exposure of $386,785. The system prioritized smaller aircraft and lower passenger-load flights because they could be accommodated within the limited slot availability, avoiding the catastrophic DOT tarmac fines ($27,500 each) that drive up costs on the four uncovered wide-body flights.\n\n**Critical issue**: All four uncovered flights (UA106 at $136,825, UA103 at $84,430, UA102 at $83,550, and UA101 at $81,980) will incur DOT tarmac fines, and **all four are inbound flights** carrying a 30% diversion risk\u2014ferry costs are already included in these figures, but diversions would strand aircraft out of position and cascade into downstream cancellations. The dispatcher should evaluate whether manually swapping one high-value inbound (especially UA106, the costliest single flight) for a lower-priority outbound would reduce both regulatory and operational risk before accepting this recommendation."
+}
