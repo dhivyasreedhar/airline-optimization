@@ -132,7 +132,6 @@ Additional cost components per uncovered flight:
 - **Ferry/repositioning** — inbound flights carry a 30% diversion probability; expected ferry cost included in uncovered option
 - **DOT tarmac fine** — $27,500/departure if uncovered effective delay exceeds 3h domestic / 4h international
 
-Uncovered flights face a 3× delay multiplier (the `UNCOVERED_DELAY_MULTIPLIER`) — an unmanaged 90-minute disruption cascades into ~270 minutes of effective delay for passengers and downstream operations.
 
 ---
 
@@ -187,17 +186,6 @@ Every run writes a JSON file to `traces/`. The trace is immutable at decision ti
 }
 ```
 
----
-
-## What v1 Does Not Cover
-
-- Multi-disruption joint optimization (two ground stops competing for the same reserve pool)
-- Crew pairing recovery across multiple days
-- Flight attendant constraints
-- Individual passenger rebooking (requires GDS access)
-- Per-fare-class passenger value
-- Pre-simulation mode (running P50/P75/P90 before a disruption fires for pre-positioning)
-- EU 261/2004 compliance costs
 
 ---
 
